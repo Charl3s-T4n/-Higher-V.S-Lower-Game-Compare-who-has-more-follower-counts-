@@ -5,11 +5,11 @@ from game_data import data
 from replit import clear  # TO clear console between rounds
 
 # Create function which will replace the following A selection with previous B selection   
-def to_replace_selection(first_comparison, second_comparison):
-  first_person_name = first_comparison['name']
+def to_replace_selection(first_comparison, second_comparison):                                     # Create function 
+  first_person_name = first_comparison['name']                                           # MAking use of dictionary key-value pairs
   first_person_description =       first_comparison['description']
   first_person_country = first_comparison['country']
-  print(f"Compare A: {first_person_name}, a {first_person_description}, from {first_person_country}.")
+  print(f"Compare A: {first_person_name}, a {first_person_description}, from {first_person_country}.")    # USing f-string to insert values
 
   print(vs)
   
@@ -25,11 +25,11 @@ def to_replace_selection(first_comparison, second_comparison):
 
 # Create flag variable so that i can end while Loop 
 flag_variable = False 
-second_flag_variable = False  # Create second flag variable for nested while loop
-current_score = 0     # Create global variable which will store the current score
-while not flag_variable:    # While True 
-  while not second_flag_variable: # While True
-    first_selection = random.choice(data)    # Returns rendom element from the list
+second_flag_variable = False                                                   # Create second flag variable for nested while loop
+current_score = 0                                                              # Create global variable which will store the current score
+while not flag_variable:                                                       # While True 
+  while not second_flag_variable:                                              # While True
+    first_selection = random.choice(data)                                      # Returns rendom element from the list
     first_person_name = first_selection['name']
     first_person_description =       first_selection['description']
     first_person_country = first_selection['country']
@@ -45,7 +45,7 @@ while not flag_variable:    # While True
     second_person_country = second_selection['country']
     print(f"Compare B: {second_person_name}, a {second_person_description}, from {second_person_country}." )
       
-    break   # So that while loop will not be infinite-----> break out of while loop
+    break                                                                  # So that while loop will not be infinite-----> break out of while loop
     
 # Below here to compare first selection follower_count vs second_selection
   first_person_count = first_selection['follower_count']
@@ -59,19 +59,19 @@ while not flag_variable:    # While True
     current_score += 1
     clear()  # TO clear console between rounds
     print(logo)  # show logo even in next rounds
-    print(f"You are correct. Current score: {current_score}.")   # show previous score even in next round
+    print(f"You are correct. Current score: {current_score}.")               # show previous score even in next round
     second_flag_variable = True # Stop nested while loop
     to_replace_selection(first_comparison = second_selection, second_comparison = first_selection)       # B will become A next comparison 
   
-  elif user_selection == 'b' and second_person_count > first_person_count:      # Second scenario: Guess correctly that b has more follower counts
+  elif user_selection == 'b' and second_person_count > first_person_count:   # Second scenario: Guess correctly that b has more follower counts
     current_score += 1
     clear()  # TO clear console between rounds
     print(logo)    # show logo even in next rounds
-    print(f"You are correct. Current score: {current_score}.")   # show previous score even in next round
+    print(f"You are correct. Current score: {current_score}.")               # show previous score even in next round
     second_flag_variable = True # Stop nested while loop
-    to_replace_selection(first_comparison = second_selection, second_comparison = first_selection)        # B will become A next comparison 
+    to_replace_selection(first_comparison = second_selection, second_comparison = first_selection)       # B will become A next comparison 
 
   else:
-    flag_variable = True  # Ends while loop when guessed wrongly 
+    flag_variable = True                                                     # Ends while loop when guessed wrongly 
     print(f"Sorry that's wrong. Final score: {current_score}")
     
